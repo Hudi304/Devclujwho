@@ -1,0 +1,138 @@
+@import '../../../../common-components/ReactParallaxTilt.scss';
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.debug {
+    border: 1px solid black;
+}
+
+.parallax-effect-glare-scale {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(85, 81, 105);
+    color: white;
+    border: 0px solid black;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    transition: 0.3s linear;
+    width: fit-content;
+
+    .clear-button {
+        background: transparent;
+        border-radius: 20px;
+        appearance: none;
+        border: none !important;
+
+        .card-grid {
+            display: grid;
+            grid-template-rows: 10vh auto;
+            font-size: 4vh;
+            color: white;
+            transform: translateZ(20px);
+
+            .profile-picture-felx-container {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                padding-left: 0.5vh;
+                height: max-content;
+
+                .profile-picture {
+                    position: relative;
+                    border-radius: 50%;
+                    border: 2px solid rgb(255, 255, 255);
+                    width: 8vh;
+                    height: 8vh;
+                    left: -1vh;
+                }
+
+                .name {
+                    padding: 1vh 1.5vh 1vh 0.5vh;
+                }
+            }
+
+            .chat_message {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                align-content: center;
+                padding-left: 2vh;
+                padding-top: 0.5vh;
+                padding-bottom: 1.5vh;
+
+                font-size: 2vh;
+                color: white;
+
+                .cursor {
+                    opacity: 0;
+                    transition: 0.2s;
+                }
+                .cursor.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.card-pulse {
+    animation: pulse 2s infinite;
+}
+
+.card_animations {
+    animation: chat_card_pop_up 0.3s ease-out forwards, pulse 2s linear 3s infinite;
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.98);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.98);
+    }
+}
+
+.chat_card_pop_up {
+    animation: chat-pop-up;
+    animation-timing-function: ease-out;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes chat-pop-up {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes chat-box-jump-left {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
